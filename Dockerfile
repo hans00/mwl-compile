@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 COPY tools /tools
 
-ENV OSXCROSS_SDK_VERSION=10.15
+ENV OSXCROSS_SDK_VERSION=11.3
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PORTABLE=1
@@ -49,7 +49,7 @@ RUN dpkg --add-architecture i386 && \
 	cd /osxcross && \
 	./tools/get_dependencies.sh && \
 	curl -sL -o ./tarballs/MacOSX${OSXCROSS_SDK_VERSION}.sdk.tar.xz \
-	"https://github.com/phracker/MacOSX-SDKs/releases/download/${OSXCROSS_SDK_VERSION}/MacOSX${OSXCROSS_SDK_VERSION}.sdk.tar.xz" && \
+	"https://github.com/phracker/MacOSX-SDKs/releases/download/11.3/MacOSX${OSXCROSS_SDK_VERSION}.sdk.tar.xz" && \
 	echo | PORTABLE=1 ./build.sh && \
 	./build_compiler_rt.sh && \
 	ldconfig && \
