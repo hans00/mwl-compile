@@ -67,7 +67,7 @@ PKG_LOCATION=$(realpath "$1")
 mkdir -p "$TMP_DIR/flat/base.pkg"
 cp -R "$ROOT" "$TMP_DIR/root"
 NUM_FILES=$(find "${TMP_DIR}/root" | wc -l)
-INSTALL_KB_SIZE=$(du -k -s "${TMP_DIR}/root" | awk '{print $1}')
+INSTALL_KB_SIZE=$(du -k -s "${TMP_DIR}/root" -type f | awk '{print $1}')
 
 SCRIPT="<scripts/>"
 ENABLE_SCRIPT=false
