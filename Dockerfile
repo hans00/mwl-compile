@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:bionic
 
 COPY tools /tools
 
@@ -32,8 +32,8 @@ RUN dpkg --add-architecture i386 && \
 # build xar
 	cd /tmp && \
 	curl -sL https://github.com/downloads/mackyle/xar/xar-1.6.1.tar.gz | tar zx && \
-	cd xar-1.6.1 && \
-	./configure && \
+	cd xar-* && \
+	./autogen.sh && \
 	make && \
 	make install && \
 	ldconfig && \
